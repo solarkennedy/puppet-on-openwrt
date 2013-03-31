@@ -1,0 +1,12 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2013 OpenWrt.org
+
+START=70
+
+start() {
+	service_start /usr/bin/ruby /usr/bin/puppet agent
+}
+
+stop() {
+	service_stop /usr/bin/ruby /usr/bin/puppet agent
+}

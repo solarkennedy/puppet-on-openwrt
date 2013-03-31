@@ -1,0 +1,33 @@
+From c399cac71b9b53db1ec0b6a3c6a44eeeed5063a6 Mon Sep 17 00:00:00 2001
+From: Kyle Anderson <kyle@xkyle.com>
+Date: Sun, 24 Mar 2013 16:43:34 -0700
+Subject: [PATCH] (#19877) Enable automatic package list downloading for opkg
+
+On OpenWrt package lists do not persist across reboots, often
+requiring one to run "opkg update" before running opkg operations.
+
+This commit enables detection for this, so puppet will fetch a
+package list if it hasn't been downloaded yet, enabling package
+installs to proceed as expected.
+---
+ lib/puppet/provider/package/opkg.rb |    4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/lib/puppet/provider/package/opkg.rb b/lib/puppet/provider/package/opkg.rb
+index ce0936f..619ba1d 100755
+--- a/lib/puppet/provider/package/opkg.rb
++++ b/lib/puppet/provider/package/opkg.rb
+@@ -39,6 +39,10 @@ Puppet::Type.type(:package).provide :opkg, :source => :opkg, :parent => Puppet::
+   end
+ 
+   def install
++    # OpenWrt package lists are ephemeral, make sure we have at least
++    # some entries in the list directory for opkg to use
++    opkg('update') if Dir.entries('/var/opkg-lists/').size <= 2
++
+     if @resource[:source]
+       opkg( '--force-overwrite', 'install', @resource[:source] )
+     else
+-- 
+1.7.10.4
+
