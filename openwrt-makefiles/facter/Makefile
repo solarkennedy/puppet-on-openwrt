@@ -8,19 +8,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=facter
-PKG_VERSION:=1.6.17
+PKG_VERSION:=1.7.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=${PKG_NAME}-${PKG_VERSION}.tar.gz
 PKG_SOURCE_URL:=http://downloads.puppetlabs.com/facter/
-PKG_MD5SUM:=7dbefba6148d2c6b6034009c46b3ae14
+PKG_MD5SUM:=50dd278ad91a6d9266aeebf444ba1a71
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/facter
   SECTION:=admin
   CATEGORY:=Administration
-  DEPENDS:= +libruby +ruby-core +ruby-enc
+  DEPENDS:= +libruby +ruby-core +ruby-enc +ruby-yaml
   TITLE:=Collect and display facts about the system
   URL:=http://projects.puppetlabs.com/projects/facter
 endef
