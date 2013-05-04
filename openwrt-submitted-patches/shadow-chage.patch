@@ -1,0 +1,22 @@
+Index: utils/shadow/Makefile
+===================================================================
+--- utils/shadow/Makefile	(revision 36545)
++++ utils/shadow/Makefile	(working copy)
+@@ -9,7 +9,7 @@
+ 
+ PKG_NAME:=shadow
+ PKG_VERSION:=4.1.5.1
+-PKG_RELEASE:=1
++PKG_RELEASE:=2
+ 
+ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+ PKG_SOURCE_URL:=http://pkg-shadow.alioth.debian.org/releases
+@@ -23,7 +23,7 @@
+ 
+ UTILS := \
+ 	groupadd groupdel groupmod useradd userdel usermod \
+-	su passwd groups
++	su passwd groups chage
+ 
+ CONFIGURE_ARGS += \
+ 	--without-audit \
