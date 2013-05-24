@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=puppet
-PKG_VERSION:=3.1.0
+PKG_VERSION:=3.2.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=${PKG_NAME}-${PKG_VERSION}.tar.gz
 PKG_SOURCE_URL:=http://downloads.puppetlabs.com/puppet/
-PKG_MD5SUM:=4cbdcc9dfcda677c820175375a500651
+PKG_MD5SUM:=a9bce4fe7a68aebcb6e97256e7faac5b
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -96,4 +96,3 @@ define Package/puppet/conffiles
 endef
 
 $(eval $(call BuildPackage,puppet))
-
