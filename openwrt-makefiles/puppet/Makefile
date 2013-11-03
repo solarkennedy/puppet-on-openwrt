@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=puppet
-PKG_VERSION:=3.2.1
+PKG_VERSION:=3.3.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=${PKG_NAME}-${PKG_VERSION}.tar.gz
 PKG_SOURCE_URL:=http://downloads.puppetlabs.com/puppet/
-PKG_MD5SUM:=a9bce4fe7a68aebcb6e97256e7faac5b
+PKG_MD5SUM:=e553c381df75b24c8eda00ecc6dcef8a
 
 include $(INCLUDE_DIR)/package.mk
 
