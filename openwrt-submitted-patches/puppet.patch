@@ -30,35 +30,6 @@ Index: admin/puppet/files/etckeeper-commit-post
 +
 +# Failure of etckeeper should not be fatal.
 +exit 0
-
-Property changes on: admin/puppet/files/etckeeper-commit-post
-___________________________________________________________________
-Added: svn:executable
-## -0,0 +1 ##
-+*
-\ No newline at end of property
-Index: admin/puppet/files/etckeeper-commit-pre
-===================================================================
---- admin/puppet/files/etckeeper-commit-pre	(revision 0)
-+++ admin/puppet/files/etckeeper-commit-pre	(working copy)
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+
-+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-+
-+which etckeeper > /dev/null 2>&1 || exit 0
-+
-+etckeeper commit "saving uncommitted changes in /etc prior to puppet catalog run"
-+
-+# Failure of etckeeper should not be fatal.
-+exit 0
-
-Property changes on: admin/puppet/files/etckeeper-commit-pre
-___________________________________________________________________
-Added: svn:executable
-## -0,0 +1 ##
-+*
-\ No newline at end of property
 Index: admin/puppet/files/puppet.conf
 ===================================================================
 --- admin/puppet/files/puppet.conf	(revision 0)
@@ -81,6 +52,21 @@ Index: admin/puppet/files/puppet.conf
 +ssl_client_header = SSL_CLIENT_S_DN 
 +ssl_client_verify_header = SSL_CLIENT_VERIFY
 +
+Index: admin/puppet/files/etckeeper-commit-pre
+===================================================================
+--- admin/puppet/files/etckeeper-commit-pre	(revision 0)
++++ admin/puppet/files/etckeeper-commit-pre	(working copy)
+@@ -0,0 +1,10 @@
++#!/bin/sh
++
++PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++
++which etckeeper > /dev/null 2>&1 || exit 0
++
++etckeeper commit "saving uncommitted changes in /etc prior to puppet catalog run"
++
++# Failure of etckeeper should not be fatal.
++exit 0
 Index: admin/puppet/Makefile
 ===================================================================
 --- admin/puppet/Makefile	(revision 0)
@@ -96,12 +82,12 @@ Index: admin/puppet/Makefile
 +include $(TOPDIR)/rules.mk
 +
 +PKG_NAME:=puppet
-+PKG_VERSION:=3.2.1
++PKG_VERSION:=3.3.1
 +PKG_RELEASE:=1
 +
 +PKG_SOURCE:=${PKG_NAME}-${PKG_VERSION}.tar.gz
 +PKG_SOURCE_URL:=http://downloads.puppetlabs.com/puppet/
-+PKG_MD5SUM:=a9bce4fe7a68aebcb6e97256e7faac5b
++PKG_MD5SUM:=e553c381df75b24c8eda00ecc6dcef8a
 +
 +include $(INCLUDE_DIR)/package.mk
 +

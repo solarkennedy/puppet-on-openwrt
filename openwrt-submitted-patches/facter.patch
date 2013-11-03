@@ -13,12 +13,12 @@ Index: admin/facter/Makefile
 +include $(TOPDIR)/rules.mk
 +
 +PKG_NAME:=facter
-+PKG_VERSION:=1.7.0
++PKG_VERSION:=1.7.3
 +PKG_RELEASE:=1
 +
 +PKG_SOURCE:=${PKG_NAME}-${PKG_VERSION}.tar.gz
 +PKG_SOURCE_URL:=http://downloads.puppetlabs.com/facter/
-+PKG_MD5SUM:=50dd278ad91a6d9266aeebf444ba1a71
++PKG_MD5SUM:=7de012396f8ec4287fc3991ca6242151
 +
 +include $(INCLUDE_DIR)/package.mk
 +
